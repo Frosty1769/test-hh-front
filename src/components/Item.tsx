@@ -1,5 +1,5 @@
 import clsx from 'clsx'; 
-import { forwardRef, useEffect, useState, type HTMLAttributes } from 'react';
+import { forwardRef, type HTMLAttributes } from 'react';
 import type { ItemGetOut } from '../interfaces/Item';
 import Checkbox from './input/Checkbox';
 import { checkItem } from '../api/functions';
@@ -16,7 +16,7 @@ const Item = forwardRef<HTMLDivElement, ItemProps>(({isDragging, isOverlay, styl
 
     const handleCheckItem = (checked: boolean) => {
         props.onChangeItem?.({...props.item, isSelected: checked})
-        checkItem(props.item.id, {id: props.item.id, isSelected: checked}, (res)=> {})
+        checkItem(props.item.id, {id: props.item.id, isSelected: checked}, ()=> {})
     }
 
     return <div 

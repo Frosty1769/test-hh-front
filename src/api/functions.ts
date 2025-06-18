@@ -1,7 +1,7 @@
 import type { ResponseContainer } from "../interfaces/Base";
 import type { ItemGetOut, ItemUpdIn, MoveUpdIn } from "../interfaces/Item";
 import { getFullPath, getParamsString } from "../utils/path";
-import { MAIN_URL, Path, requestGet, requestPost } from "./requester";
+import { Path, requestGet, requestPost } from "./requester";
 
 export function getItems(
 	page: number,

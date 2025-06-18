@@ -1,12 +1,10 @@
-import { closestCenter, DndContext, DragOverlay, MouseSensor, rectIntersection, TouchSensor, useSensor, useSensors, type DragEndEvent, type DragStartEvent } from "@dnd-kit/core";
-import { arrayMove, rectSortingStrategy, SortableContext, verticalListSortingStrategy } from "@dnd-kit/sortable";
+import { DndContext, DragOverlay, MouseSensor, rectIntersection, TouchSensor, useSensor, useSensors, type DragEndEvent, type DragStartEvent } from "@dnd-kit/core";
+import { arrayMove, SortableContext, verticalListSortingStrategy } from "@dnd-kit/sortable";
 import Item from "../Item";
-import React, { useCallback, useEffect, useState, type Dispatch, type FC, type SetStateAction } from "react";
+import React, { useCallback, useEffect, useState, type Dispatch, type SetStateAction } from "react";
 import type { ItemGetOut } from "../../interfaces/Item";
-import { restrictToVerticalAxis } from "@dnd-kit/modifiers";
 import SortableItem from "./SortableItem";
 import { moveItem } from "../../api/functions";
-import { FixedSizeList } from "react-window";
 import { Virtuoso } from "react-virtuoso";
 
 interface Props {

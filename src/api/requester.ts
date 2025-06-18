@@ -49,23 +49,6 @@ export async function requestPost<R>(
 		});
 }
 
-export async function requestPostForm<R>(
-	url: string,
-	inData: any,
-	callback?: any
-) {
-	axios
-		.post(MAIN_URL + url, inData, {
-			withCredentials: true,
-			headers: { 'Content-Type': 'multipart/form-data' },
-		})
-		.then(function (response) {
-			callback(response.data as ResponseContainer<any>);
-		})
-		.catch(function (response) {
-			console.error(response);
-		});
-}
 
 export async function requestPut<R>(
 	url: string,
