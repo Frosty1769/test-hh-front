@@ -63,6 +63,12 @@ function App() {
                 setItems={setItems} 
                 onScroll={onScroll}
               />
+              {isLoading && <div className='fixed flex left-1/2 -translate-1/2 justify-center items-center bottom-3 w-8 h-8 rounded-full p-1 bg-cyan-950 border border-cyan-700'>
+                <div
+			          	className='border-current inline-block h-4 w-4 animate-spin rounded-full border-2 border-solid border-r-transparent align-[-0.125em] text-cyan-500 motion-reduce:animate-[spin_1.5s_linear_infinite]'
+			          	role='status'
+			          />
+              </div>}
         </div>
       </div>
     </>
