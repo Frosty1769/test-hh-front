@@ -55,7 +55,7 @@ function App() {
       <div className='flex justify-center w-screen'>
         <div
           ref={listInnerRef}
-          className='flex flex-col items-center gap-4 w-[600px] bg-gray-900 max-h-screen'>
+          className='flex flex-col items-center gap-4 w-[600px] bg-gray-900 max-h-screen pt-4 pb-8'>
             <DragContext 
                 onSearchDebounced={onSearchDebounced} 
                 key={"key"} 
