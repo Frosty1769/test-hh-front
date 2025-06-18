@@ -61,16 +61,16 @@ const DragContext = (props: Props) => {
 
     return (
         <>
-            <div className="h-[100px] w-full flex justify-center border-b border-amber-100 py-5">
+            <div className="h-[100px] w-full flex justify-center border-b border-cyan-500 py-5">
                 <span className="flex justify-center  border rounded-2xl border-cyan-900  overflow-hidden">
                     <span className="w-[300px]">
                         <input className="px-4 w-full h-full focus-visible:outline-none" 
                             onChange={(e)=>setSearch(e.target.value)}
                         />
                     </span>
-                    <button className="!bg-cyan-900 w-14 rounded-2xl focus:!outline-none focus-visible:!outline-none">
+                    <div className="flex justify-center items-center px-4">
                         🔍
-                    </button>
+                    </div>
                 </span>
             </div>
             <DndContext
@@ -84,12 +84,18 @@ const DragContext = (props: Props) => {
                 <SortableContext key={"12"} items={items} strategy={verticalListSortingStrategy}>
                     <Virtuoso
                         style={{ height: window.innerHeight-100, width: '100%'}} // Явно задаём ширину
-                        className="flex flex-col gap-5"
+                        className="flex flex-col gap-5
+                        [&::-webkit-scrollbar]:w-2
+                     [&::-webkit-scrollbar-track]:bg-gray-900
+                     [&::-webkit-scrollbar-thumb]:bg-gray-700
+                     [&::-webkit-scrollbar-thumb]:rounded-2xl
+                        
+                        "
                         components={{
                             Item: ({ children, ...props }) => (
                                 <div
                                     {...props}
-                                    style={{
+                                        style={{
                                         ...props.style,
                                         width: '100%', // Фиксим нулевую ширину
                                         overflow: 'visible' // Важно для корректного отображения при перетаскивании
@@ -99,7 +105,7 @@ const DragContext = (props: Props) => {
                                 </div>
                             ),
                             List: React.forwardRef(({ style, children }, ref) => (
-                                <div ref={ref} style={{ ...style, width: '100%' }}>
+                                <div ref={ref} className="pt-6" style={{ ...style, width: '100%' }}>
                                     {children}
                                 </div>
                             ))
