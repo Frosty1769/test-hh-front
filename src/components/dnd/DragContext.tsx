@@ -54,7 +54,7 @@ const DragContext = (props: Props) => {
     useEffect(() => {
         const getData = setTimeout(() => {
             props.onSearchDebounced(search);
-        }, 100);
+        }, 800);
 
         return () => clearTimeout(getData);
     }, [search]);
